@@ -1,5 +1,7 @@
 extends Camera3D
 
+# Borrows Ideas from Apocalyptic Phosphorus (https://www.youtube.com/watch?v=QitqbSHEYas) with added damping and smoother flying.
+
 @export var acceleration = 25.0
 @export var baseFlySpeed = 5.0
 @export var fastFlyModifier = 3.0
