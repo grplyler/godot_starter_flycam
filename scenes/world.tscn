@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnvbwr2ooax33"]
+
+[ext_resource type="Script" path="res://scripts/Camera3D.gd" id="1_trctg"]
+[ext_resource type="Texture2D" uid="uid://d1t67d32sehuo" path="res://HDRI/qwantani_sunrise_4k.hdr" id="1_vfvv7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_srv70"]
+panorama = ExtResource("1_vfvv7")
+
+[sub_resource type="Sky" id="Sky_i6x1r"]
+sky_material = SubResource("PanoramaSkyMaterial_srv70")
+
+[sub_resource type="Environment" id="Environment_l1cow"]
+background_mode = 2
+sky = SubResource("Sky_i6x1r")
+ssil_intensity = 1.84
+sdfgi_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l1cow")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244331, 1.32295, 3.64821)
+script = ExtResource("1_trctg")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00454652, 0.14624, -0.00290966)
+size = Vector3(6, 0.70752, 6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99136, 0)
